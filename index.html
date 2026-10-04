@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeetingAI - Meeting Information Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">MeetingAI</div>
+    <nav>
+        <a href="#analyzer">Analyzer</a>
+        <a href="#dashboard">Insights</a>
+        <a href="#assistant">Assistant</a>
+        <a href="#how-it-works">How It Works</a>
+    </nav>
+    <div class="status">System Ready</div>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <p class="small-title">MEETING INFORMATION MANAGEMENT</p>
+        <h1>Turn Meetings Into <span>Actionable Insights.</span></h1>
+        <p class="hero-text">
+            MeetingAI organizes meeting transcripts into summaries, decisions,
+            action items, deadlines, and responsibilities.
+        </p>
+        <a href="#analyzer" class="main-button">Try MeetingAI</a>
+    </div>
+
+    <div class="hero-card">
+        <p>Meeting Intelligence</p>
+        <h2>Organize. Understand. Act.</h2>
+
+        <div class="mini-card">
+            <span>Action Items</span>
+            <strong>04</strong>
+        </div>
+        <div class="mini-card">
+            <span>Deadlines</span>
+            <strong>03</strong>
+        </div>
+        <div class="mini-card">
+            <span>Responsibilities</span>
+            <strong>03</strong>
+        </div>
+    </div>
+</section>
+
+<section id="analyzer" class="section">
+    <div class="section-heading">
+        <p class="small-title">MEETING ANALYZER</p>
+        <h2>Analyze a Meeting Transcript</h2>
+        <p>Enter a meeting transcript and MeetingAI will organize the useful information into different categories.</p>
+    </div>
+
+    <div class="analyzer-box">
+        <label for="meetingText">Meeting Transcript</label>
+        <textarea id="meetingText" placeholder="Enter your meeting transcript here..."></textarea>
+
+        <div class="button-row">
+            <button id="demoButton" class="secondary-button">Load Demo</button>
+            <button id="analyzeButton" class="main-button">Analyze Meeting</button>
+            <button id="clearButton" class="clear-button">Clear</button>
+        </div>
+    </div>
+
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p>Analyzing meeting...</p>
+    </div>
+</section>
+
+<section id="dashboard" class="section dashboard-section">
+    <div class="section-heading">
+        <p class="small-title">MEETING INTELLIGENCE</p>
+        <h2>Meeting Dashboard</h2>
+        <p>Important information extracted from the meeting transcript.</p>
+    </div>
+
+    <div class="stats">
+        <div class="stat-card">
+            <span>Action Items</span>
+            <strong id="actionCount">0</strong>
+        </div>
+        <div class="stat-card">
+            <span>Deadlines</span>
+            <strong id="deadlineCount">0</strong>
+        </div>
+        <div class="stat-card">
+            <span>Responsibilities</span>
+            <strong id="peopleCount">0</strong>
+        </div>
+        <div class="stat-card">
+            <span>Decisions</span>
+            <strong id="decisionCount">0</strong>
+        </div>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-card">
+            <h3>Summary</h3>
+            <p id="summaryResult">Analyze a meeting to see the summary.</p>
+        </div>
+
+        <div class="result-card">
+            <h3>Important Decisions</h3>
+            <p id="decisionResult">Decisions will appear here.</p>
+        </div>
+
+        <div class="result-card">
+            <h3>Action Items</h3>
+            <p id="actionResult">Action items will appear here.</p>
+        </div>
+
+        <div class="result-card">
+            <h3>Deadlines</h3>
+            <p id="deadlineResult">Deadlines will appear here.</p>
+        </div>
+    </div>
+
+    <div class="large-card">
+        <h3>People & Responsibilities</h3>
+        <div id="peopleResult">Responsibilities will appear here.</div>
+    </div>
+
+    <div class="manager-card">
+        <div>
+            <p class="small-title">MANAGER FOLLOW-UP</p>
+            <h2>Keep the Team on Track</h2>
+            <p id="managerMessage">Analyze a meeting to generate a follow-up message.</p>
+        </div>
+        <button id="followUpButton" class="white-button">Generate Follow-up</button>
+    </div>
+
+    <div class="large-card">
+        <h3>Meeting Notifications</h3>
+        <div id="notificationResult">No notifications yet.</div>
+    </div>
+</section>
+
+<section id="assistant" class="section assistant-section">
+    <div class="section-heading">
+        <p class="small-title">MEETING ASSISTANT</p>
+        <h2>Ask About the Meeting</h2>
+        <p>Ask simple questions about the analyzed meeting.</p>
+    </div>
+
+    <div class="assistant-box">
+        <div id="chatMessages" class="chat-messages">
+            <div class="assistant-message">
+                Hello! Analyze a meeting first, then ask me about the summary,
+                decisions, tasks, deadlines, or people.
+            </div>
+        </div>
+
+        <div class="quick-buttons">
+            <button class="quick-button" data-question="What is the summary?">Summary</button>
+            <button class="quick-button" data-question="What are the decisions?">Decisions</button>
+            <button class="quick-button" data-question="What are the action items?">Action Items</button>
+            <button class="quick-button" data-question="What are the deadlines?">Deadlines</button>
+            <button class="quick-button" data-question="Who is responsible?">Responsibilities</button>
+        </div>
+
+        <div class="chat-input">
+            <input type="text" id="questionInput" placeholder="Ask a question...">
+            <button id="askButton" class="main-button">Ask</button>
+        </div>
+    </div>
+</section>
+
+<section id="how-it-works" class="section">
+    <div class="section-heading">
+        <p class="small-title">WORKFLOW</p>
+        <h2>How MeetingAI Works</h2>
+    </div>
+
+    <div class="workflow">
+        <div class="workflow-card">
+            <span>01</span>
+            <h3>Input</h3>
+            <p>The user enters a meeting transcript.</p>
+        </div>
+
+        <div class="workflow-card">
+            <span>02</span>
+            <h3>Process</h3>
+            <p>JavaScript processes the text and identifies useful keywords.</p>
+        </div>
+
+        <div class="workflow-card">
+            <span>03</span>
+            <h3>Organize</h3>
+            <p>The information is separated into different meeting categories.</p>
+        </div>
+
+        <div class="workflow-card">
+            <span>04</span>
+            <h3>Act</h3>
+            <p>The dashboard helps users understand what needs to be done.</p>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <h2>MeetingAI</h2>
+    <p>Turning meeting conversations into structured, actionable information.</p>
+    <p class="footer-note">Frontend prototype built using HTML, CSS and JavaScript.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
